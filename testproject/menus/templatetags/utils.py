@@ -11,21 +11,25 @@ def find_children(item_dict: dict, children: dict) -> None:
         pass
 
 
-def find_opened_items(items: list, url: str):
+def find_opened_items(items: list, page_url: str):
     for item in items:
-        item['is_opened'] = True
-        if item['url'] == url:
+        item["is_opened"] = True
+        if item["url"] == page_url:
             return False
-        if not find_opened_items(item.get('children', []), url):
+        if not find_opened_items(item.get("children", []), page_url):
             return False
     return True
 
 
-def build_menu_tree(queryset: QuerySet, url) -> list:
+def build_menu_tree(queryset: QuerySet, page_url) -> list:
     result = []
     children = {}
     for item in queryset:
-        item_dict = {"id": item["id"], "name": item["name"], "is_opened": False}
+        item_dict = {
+            "id": item["id"],
+            "name": item["name"],
+            "is_opened": False,
+        }
         try:
             url = reverse(item["url"])
         except exceptions.NoReverseMatch:
@@ -41,5 +45,5 @@ def build_menu_tree(queryset: QuerySet, url) -> list:
             children[item["parent_id"]] = [
                 item_dict,
             ]
-    find_opened_items(result, url)
+    find_opened_items(result, page_url)
     return result
