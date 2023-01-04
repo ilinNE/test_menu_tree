@@ -1,5 +1,5 @@
 # Комментарии к заданию
-    Результат можно проверить [здесь](http://ilinniks.pythonanywhere.com/)
+    Результат можно проверить по адресу  http://ilinniks.pythonanywhere.com/
     Для доступа в админку:
     login: nikita
     password: 2q9ASG2hFWbwg3y
