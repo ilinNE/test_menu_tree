@@ -22,12 +22,12 @@ urlpatterns = [
     path(
         "services/nails/manicure",
         TemplateView.as_view(template_name="index.html"),
-        name="drying",
+        name="manicure",
     ),
     path(
         "services/nails/nail_extension",
         TemplateView.as_view(template_name="index.html"),
-        name="drying",
+        name="nail",
     ),
     re_path(r"^", TemplateView.as_view(template_name="index.html")),
 ]
