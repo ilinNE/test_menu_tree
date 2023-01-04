@@ -9,5 +9,25 @@ urlpatterns = [
         TemplateView.as_view(template_name="index.html"),
         name="shaving",
     ),
+    path(
+        "services/haircut",
+        TemplateView.as_view(template_name="index.html"),
+        name="haircut",
+    ),
+    path(
+        "services/drying",
+        TemplateView.as_view(template_name="index.html"),
+        name="drying",
+    ),
+    path(
+        "services/nails/manicure",
+        TemplateView.as_view(template_name="index.html"),
+        name="drying",
+    ),
+    path(
+        "services/nails/nail_extension",
+        TemplateView.as_view(template_name="index.html"),
+        name="drying",
+    ),
     re_path(r"^", TemplateView.as_view(template_name="index.html")),
 ]
