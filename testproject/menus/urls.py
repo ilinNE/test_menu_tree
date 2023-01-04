@@ -27,7 +27,7 @@ urlpatterns = [
     path(
         "services/nails/nail_extension",
         TemplateView.as_view(template_name="index.html"),
-        name="nail",
+        name="nail_extension",
     ),
-    re_path(r"^", TemplateView.as_view(template_name="index.html")),
+    re_path(r"", TemplateView.as_view(template_name="index.html")),
 ]
