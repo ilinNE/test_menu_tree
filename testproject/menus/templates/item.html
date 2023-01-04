@@ -1,0 +1,13 @@
+{% load tags %}
+<li {% if item.children %} 
+      {% if item.is_opened %}class="caret caret-down"{% else %} class="caret" {% endif %}  
+    {% else %} class="item" {% endif %} >
+    <a {% if url == item.url %} class="current" {% endif %} href={{item.url}}>{{ item.name }}</a>
+</li>
+{% if item.children %}
+  <ul {% if item.is_opened %} class="nested active" {% else %} class="nested" {% endif %} >
+  {% for item in item.children %}
+    {% draw_item item url %}
+  {% endfor %}
+  </ul>   
+{% endif %}

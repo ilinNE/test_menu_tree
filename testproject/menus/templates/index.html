@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+{% load  tags %}
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Hello Django</title>
+    <style>
+        a {
+            text-decoration: none;
+            color: black;
+            font-size: 24px;
+        }
+        ul, #myUL {
+            list-style-type: none;
+          }          
+        #myUL {
+            margin: 0;
+            padding: 0;
+          }          
+        .caret, .item {
+            cursor: pointer;
+            user-select: none;
+          }
+          
+        .caret::before {
+            content: "\25B6";
+            color: black;
+            display: inline-block;
+            margin-right: 6px;
+            font-size: 23px;
+          }
+        
+        .item::before {
+            content: "\00B7";
+            color: black;
+            display: inline-block;
+            margin-right: 6px;
+          }
+        .caret-down::before {
+            transform: rotate(90deg);
+          }
+  
+        .nested {
+            display: none;
+          }
+          
+        .active {
+            display: block;
+          }
+        .current {
+            background-color: yellow;
+        }
+        .container {
+          width: 250px;
+          position: absolute;
+          top: 10%;
+          left: 30%;
+          margin: 0 0 0 -125px;
+        }
+    </style>
+</head>
+<body>
+  <div class="container">
+    {% draw_menu 'main_menu' %}
+  </div>
+</body>
+</html>
